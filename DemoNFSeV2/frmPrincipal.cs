@@ -26,7 +26,7 @@ namespace DemoNFSeV2
         public frmPrincipal()
         {
             InitializeComponent();
-            NFSe.ConfigurarSoftwareHouse("08187168000160", "");
+            NFSe.ConfigurarSoftwareHouse("08187168000160", "uR4BwzifCN2t7Nuf7IOlo4Z0Vbnojlroa13x3dVu");
             PreencherComboCertificado();
         }
 
@@ -111,9 +111,17 @@ namespace DemoNFSeV2
 
             if (XMLAux != "")
             {
-                NFSe.Enviar(XMLAux);
-                RetornoV2Tipado();
-                RetornoV2Json();
+                try
+                {
+                    NFSe.Enviar(XMLAux);
+                    RetornoV2Tipado();
+                    RetornoV2Json();
+                }
+                catch (Exception ex)
+                {
+                    tb_XMLEnvio.Clear();
+                    tb_XMLEnvio.Text = ex.Message;
+                }
             }
             else
             {
@@ -122,7 +130,7 @@ namespace DemoNFSeV2
         }
         private void btn_ConsultarNFSe_Click(object sender, EventArgs e)
         {
-            NFSe.Consultar(tb_NFSe.Text, tb_NumeroRPS.Text, tb_SerieRPS.Text, tb_TipoRPS.Text, tb_Protocolo.Text);
+            NFSe.Consultar(tb_NumeroNFSe.Text, tb_NumeroRPS.Text, tb_SerieRPS.Text, tb_TipoRPS.Text, tb_Protocolo.Text);
             RetornoV2Tipado();
             RetornoV2Json();
         }
@@ -190,19 +198,18 @@ namespace DemoNFSeV2
                     IncluirLinha(tb_Tipado, "");
                     IncluirLinha(tb_Tipado, "================================================");
                     IncluirLinha(tb_Tipado, "");
-
-                    //Tratamentos somente para Demo
-                    if (NFSe.RetornoWS.Items(i).Protocolo != "")
-                    {
-                        tb_Protocolo.Text = NFSe.RetornoWS.Items(i).Protocolo;
-                    }
-                    tb_NumeroRPS.Text = NFSe.RetornoWS.Items(i).NumeroRps;
-                    tb_SerieRPS.Text = NFSe.RetornoWS.Items(i).SerieRps;
-                    tb_TipoRPS.Text = NFSe.RetornoWS.Items(i).Tipo;
-                    tb_NFSe.Text = NFSe.RetornoWS.Items(i).NumeroNFSe;
-                    tb_ChaveCancelamento.Text = NFSe.RetornoWS.Items(i).ChaveCancelamento;
-                    tb_XML.Text = NFSe.RetornoWS.Items(i).XmlImpressao;
                 }
+                //Tratamentos somente para Demo
+                if (NFSe.RetornoWS.Items(i).Protocolo != "")
+                {
+                    tb_Protocolo.Text = NFSe.RetornoWS.Items(i).Protocolo;
+                }
+                tb_NumeroRPS.Text = NFSe.RetornoWS.Items(i).NumeroRps;
+                tb_SerieRPS.Text = NFSe.RetornoWS.Items(i).SerieRps;
+                tb_TipoRPS.Text = NFSe.RetornoWS.Items(i).Tipo;
+                tb_NFSe.Text = NFSe.RetornoWS.Items(i).NumeroNFSe;
+                tb_ChaveCancelamento.Text = NFSe.RetornoWS.Items(i).ChaveCancelamento;
+                tb_XML.Text = NFSe.RetornoWS.Items(i).XmlImpressao;
             }
         }
         public void RetornoV2Json()
