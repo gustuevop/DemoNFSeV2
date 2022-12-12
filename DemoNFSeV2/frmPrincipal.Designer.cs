@@ -30,8 +30,29 @@
         {
             this.tc_Principal = new System.Windows.Forms.TabControl();
             this.tb_NFSe = new System.Windows.Forms.TabPage();
+            this.tc_Retorno = new System.Windows.Forms.TabControl();
+            this.tsXML = new System.Windows.Forms.TabPage();
+            this.tb_XMLEnvio = new System.Windows.Forms.RichTextBox();
+            this.tsXMLFormatado = new System.Windows.Forms.TabPage();
+            this.tb_XML = new System.Windows.Forms.RichTextBox();
+            this.tsJSON = new System.Windows.Forms.TabPage();
+            this.tb_JSON = new System.Windows.Forms.RichTextBox();
+            this.tsFormatado = new System.Windows.Forms.TabPage();
+            this.tb_Tipado = new System.Windows.Forms.RichTextBox();
             this.gb_Operacoes = new System.Windows.Forms.GroupBox();
-            this.btn_Enviar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_NumeroNFSe = new System.Windows.Forms.Label();
+            this.tb_NumeroNFSe = new System.Windows.Forms.TextBox();
+            this.tb_Protocolo = new System.Windows.Forms.TextBox();
+            this.tb_ChaveCancelamento = new System.Windows.Forms.TextBox();
+            this.lbl_TipoRPS = new System.Windows.Forms.Label();
+            this.lbl_Protocolo = new System.Windows.Forms.Label();
+            this.lbl_SerieRPS = new System.Windows.Forms.Label();
+            this.lbl_NumeroRPS = new System.Windows.Forms.Label();
+            this.tb_TipoRPS = new System.Windows.Forms.TextBox();
+            this.tb_SerieRPS = new System.Windows.Forms.TextBox();
+            this.tb_NumeroRPS = new System.Windows.Forms.TextBox();
+            this.btn_EnviarRPS = new System.Windows.Forms.Button();
             this.gb_NFSe = new System.Windows.Forms.GroupBox();
             this.btn_Salvar = new System.Windows.Forms.Button();
             this.gb_Ambiente = new System.Windows.Forms.GroupBox();
@@ -52,39 +73,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cb_Certificado = new System.Windows.Forms.ComboBox();
             this.tp_Impressao = new System.Windows.Forms.TabPage();
-            this.tc_Retorno = new System.Windows.Forms.TabControl();
-            this.tsXML = new System.Windows.Forms.TabPage();
-            this.tb_XMLEnvio = new System.Windows.Forms.RichTextBox();
-            this.tsXMLFormatado = new System.Windows.Forms.TabPage();
-            this.tb_XML = new System.Windows.Forms.RichTextBox();
-            this.tsJSON = new System.Windows.Forms.TabPage();
-            this.tb_JSON = new System.Windows.Forms.RichTextBox();
-            this.tsFormatado = new System.Windows.Forms.TabPage();
-            this.tb_Tipado = new System.Windows.Forms.RichTextBox();
-            this.lbl_Protocolo = new System.Windows.Forms.Label();
-            this.tb_Protocolo = new System.Windows.Forms.TextBox();
-            this.lbl_TipoRPS = new System.Windows.Forms.Label();
-            this.lbl_SerieRPS = new System.Windows.Forms.Label();
-            this.lbl_NumeroRPS = new System.Windows.Forms.Label();
-            this.tb_TipoRPS = new System.Windows.Forms.TextBox();
-            this.tb_SerieRPS = new System.Windows.Forms.TextBox();
-            this.tb_NumeroRPS = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lbl_NumeroNFSe = new System.Windows.Forms.Label();
-            this.tb_ChaveCancelamento = new System.Windows.Forms.TextBox();
-            this.tb_NumeroNFSe = new System.Windows.Forms.TextBox();
+            this.btn_ConsultarNFSe = new System.Windows.Forms.Button();
+            this.btn_CancelarNFSe = new System.Windows.Forms.Button();
             this.tc_Principal.SuspendLayout();
             this.tb_NFSe.SuspendLayout();
-            this.gb_Operacoes.SuspendLayout();
-            this.gb_NFSe.SuspendLayout();
-            this.gb_Ambiente.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.gp_Autenticacao.SuspendLayout();
             this.tc_Retorno.SuspendLayout();
             this.tsXML.SuspendLayout();
             this.tsXMLFormatado.SuspendLayout();
             this.tsJSON.SuspendLayout();
             this.tsFormatado.SuspendLayout();
+            this.gb_Operacoes.SuspendLayout();
+            this.gb_NFSe.SuspendLayout();
+            this.gb_Ambiente.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.gp_Autenticacao.SuspendLayout();
             this.SuspendLayout();
             // 
             // tc_Principal
@@ -112,8 +114,99 @@
             this.tb_NFSe.Text = "NFSe";
             this.tb_NFSe.UseVisualStyleBackColor = true;
             // 
+            // tc_Retorno
+            // 
+            this.tc_Retorno.Controls.Add(this.tsXML);
+            this.tc_Retorno.Controls.Add(this.tsXMLFormatado);
+            this.tc_Retorno.Controls.Add(this.tsJSON);
+            this.tc_Retorno.Controls.Add(this.tsFormatado);
+            this.tc_Retorno.Location = new System.Drawing.Point(3, 365);
+            this.tc_Retorno.Name = "tc_Retorno";
+            this.tc_Retorno.SelectedIndex = 0;
+            this.tc_Retorno.Size = new System.Drawing.Size(618, 318);
+            this.tc_Retorno.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tc_Retorno.TabIndex = 6;
+            // 
+            // tsXML
+            // 
+            this.tsXML.Controls.Add(this.tb_XMLEnvio);
+            this.tsXML.Location = new System.Drawing.Point(4, 22);
+            this.tsXML.Name = "tsXML";
+            this.tsXML.Padding = new System.Windows.Forms.Padding(3);
+            this.tsXML.Size = new System.Drawing.Size(610, 292);
+            this.tsXML.TabIndex = 0;
+            this.tsXML.Text = "XML envio, somente para impressão";
+            this.tsXML.UseVisualStyleBackColor = true;
+            // 
+            // tb_XMLEnvio
+            // 
+            this.tb_XMLEnvio.Location = new System.Drawing.Point(2, 1);
+            this.tb_XMLEnvio.Name = "tb_XMLEnvio";
+            this.tb_XMLEnvio.Size = new System.Drawing.Size(604, 300);
+            this.tb_XMLEnvio.TabIndex = 0;
+            this.tb_XMLEnvio.Text = "";
+            // 
+            // tsXMLFormatado
+            // 
+            this.tsXMLFormatado.Controls.Add(this.tb_XML);
+            this.tsXMLFormatado.Location = new System.Drawing.Point(4, 22);
+            this.tsXMLFormatado.Name = "tsXMLFormatado";
+            this.tsXMLFormatado.Padding = new System.Windows.Forms.Padding(3);
+            this.tsXMLFormatado.Size = new System.Drawing.Size(610, 292);
+            this.tsXMLFormatado.TabIndex = 1;
+            this.tsXMLFormatado.Text = "XML";
+            this.tsXMLFormatado.UseVisualStyleBackColor = true;
+            // 
+            // tb_XML
+            // 
+            this.tb_XML.Location = new System.Drawing.Point(3, 2);
+            this.tb_XML.Name = "tb_XML";
+            this.tb_XML.Size = new System.Drawing.Size(604, 300);
+            this.tb_XML.TabIndex = 1;
+            this.tb_XML.Text = "";
+            // 
+            // tsJSON
+            // 
+            this.tsJSON.Controls.Add(this.tb_JSON);
+            this.tsJSON.Location = new System.Drawing.Point(4, 22);
+            this.tsJSON.Name = "tsJSON";
+            this.tsJSON.Padding = new System.Windows.Forms.Padding(3);
+            this.tsJSON.Size = new System.Drawing.Size(610, 292);
+            this.tsJSON.TabIndex = 2;
+            this.tsJSON.Text = "JSON";
+            this.tsJSON.UseVisualStyleBackColor = true;
+            // 
+            // tb_JSON
+            // 
+            this.tb_JSON.Location = new System.Drawing.Point(3, 2);
+            this.tb_JSON.Name = "tb_JSON";
+            this.tb_JSON.Size = new System.Drawing.Size(604, 300);
+            this.tb_JSON.TabIndex = 1;
+            this.tb_JSON.Text = "";
+            // 
+            // tsFormatado
+            // 
+            this.tsFormatado.Controls.Add(this.tb_Tipado);
+            this.tsFormatado.Location = new System.Drawing.Point(4, 22);
+            this.tsFormatado.Name = "tsFormatado";
+            this.tsFormatado.Padding = new System.Windows.Forms.Padding(3);
+            this.tsFormatado.Size = new System.Drawing.Size(610, 292);
+            this.tsFormatado.TabIndex = 3;
+            this.tsFormatado.Text = "Campos Formatados";
+            this.tsFormatado.UseVisualStyleBackColor = true;
+            // 
+            // tb_Tipado
+            // 
+            this.tb_Tipado.Location = new System.Drawing.Point(3, 2);
+            this.tb_Tipado.Name = "tb_Tipado";
+            this.tb_Tipado.Size = new System.Drawing.Size(604, 300);
+            this.tb_Tipado.TabIndex = 1;
+            this.tb_Tipado.Text = "";
+            // 
             // gb_Operacoes
             // 
+            this.gb_Operacoes.Controls.Add(this.btn_CancelarNFSe);
+            this.gb_Operacoes.Controls.Add(this.btn_ConsultarNFSe);
             this.gb_Operacoes.Controls.Add(this.label9);
             this.gb_Operacoes.Controls.Add(this.lbl_NumeroNFSe);
             this.gb_Operacoes.Controls.Add(this.tb_NumeroNFSe);
@@ -126,7 +219,7 @@
             this.gb_Operacoes.Controls.Add(this.tb_TipoRPS);
             this.gb_Operacoes.Controls.Add(this.tb_SerieRPS);
             this.gb_Operacoes.Controls.Add(this.tb_NumeroRPS);
-            this.gb_Operacoes.Controls.Add(this.btn_Enviar);
+            this.gb_Operacoes.Controls.Add(this.btn_EnviarRPS);
             this.gb_Operacoes.Location = new System.Drawing.Point(9, 258);
             this.gb_Operacoes.Name = "gb_Operacoes";
             this.gb_Operacoes.Size = new System.Drawing.Size(608, 107);
@@ -134,15 +227,111 @@
             this.gb_Operacoes.TabStop = false;
             this.gb_Operacoes.Text = "Operações";
             // 
-            // btn_Enviar
+            // label9
             // 
-            this.btn_Enviar.Location = new System.Drawing.Point(9, 19);
-            this.btn_Enviar.Name = "btn_Enviar";
-            this.btn_Enviar.Size = new System.Drawing.Size(116, 23);
-            this.btn_Enviar.TabIndex = 4;
-            this.btn_Enviar.Text = "Enviar RPS";
-            this.btn_Enviar.UseVisualStyleBackColor = true;
-            this.btn_Enviar.Click += new System.EventHandler(this.btn_Enviar_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(408, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(109, 13);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Chave Cancelamento";
+            // 
+            // lbl_NumeroNFSe
+            // 
+            this.lbl_NumeroNFSe.AutoSize = true;
+            this.lbl_NumeroNFSe.Location = new System.Drawing.Point(307, 81);
+            this.lbl_NumeroNFSe.Name = "lbl_NumeroNFSe";
+            this.lbl_NumeroNFSe.Size = new System.Drawing.Size(34, 13);
+            this.lbl_NumeroNFSe.TabIndex = 31;
+            this.lbl_NumeroNFSe.Text = "NFSe";
+            // 
+            // tb_NumeroNFSe
+            // 
+            this.tb_NumeroNFSe.Location = new System.Drawing.Point(347, 81);
+            this.tb_NumeroNFSe.Name = "tb_NumeroNFSe";
+            this.tb_NumeroNFSe.Size = new System.Drawing.Size(59, 20);
+            this.tb_NumeroNFSe.TabIndex = 29;
+            // 
+            // tb_Protocolo
+            // 
+            this.tb_Protocolo.Location = new System.Drawing.Point(520, 35);
+            this.tb_Protocolo.Name = "tb_Protocolo";
+            this.tb_Protocolo.Size = new System.Drawing.Size(84, 20);
+            this.tb_Protocolo.TabIndex = 9;
+            // 
+            // tb_ChaveCancelamento
+            // 
+            this.tb_ChaveCancelamento.Location = new System.Drawing.Point(520, 9);
+            this.tb_ChaveCancelamento.Name = "tb_ChaveCancelamento";
+            this.tb_ChaveCancelamento.Size = new System.Drawing.Size(84, 20);
+            this.tb_ChaveCancelamento.TabIndex = 30;
+            // 
+            // lbl_TipoRPS
+            // 
+            this.lbl_TipoRPS.AutoSize = true;
+            this.lbl_TipoRPS.Location = new System.Drawing.Point(310, 58);
+            this.lbl_TipoRPS.Name = "lbl_TipoRPS";
+            this.lbl_TipoRPS.Size = new System.Drawing.Size(28, 13);
+            this.lbl_TipoRPS.TabIndex = 28;
+            this.lbl_TipoRPS.Text = "Tipo";
+            // 
+            // lbl_Protocolo
+            // 
+            this.lbl_Protocolo.AutoSize = true;
+            this.lbl_Protocolo.Location = new System.Drawing.Point(422, 38);
+            this.lbl_Protocolo.Name = "lbl_Protocolo";
+            this.lbl_Protocolo.Size = new System.Drawing.Size(92, 13);
+            this.lbl_Protocolo.TabIndex = 10;
+            this.lbl_Protocolo.Text = "Número Protocolo";
+            // 
+            // lbl_SerieRPS
+            // 
+            this.lbl_SerieRPS.AutoSize = true;
+            this.lbl_SerieRPS.Location = new System.Drawing.Point(310, 35);
+            this.lbl_SerieRPS.Name = "lbl_SerieRPS";
+            this.lbl_SerieRPS.Size = new System.Drawing.Size(31, 13);
+            this.lbl_SerieRPS.TabIndex = 27;
+            this.lbl_SerieRPS.Text = "Série";
+            // 
+            // lbl_NumeroRPS
+            // 
+            this.lbl_NumeroRPS.AutoSize = true;
+            this.lbl_NumeroRPS.Location = new System.Drawing.Point(312, 12);
+            this.lbl_NumeroRPS.Name = "lbl_NumeroRPS";
+            this.lbl_NumeroRPS.Size = new System.Drawing.Size(29, 13);
+            this.lbl_NumeroRPS.TabIndex = 26;
+            this.lbl_NumeroRPS.Text = "RPS";
+            // 
+            // tb_TipoRPS
+            // 
+            this.tb_TipoRPS.Location = new System.Drawing.Point(347, 55);
+            this.tb_TipoRPS.Name = "tb_TipoRPS";
+            this.tb_TipoRPS.Size = new System.Drawing.Size(59, 20);
+            this.tb_TipoRPS.TabIndex = 25;
+            // 
+            // tb_SerieRPS
+            // 
+            this.tb_SerieRPS.Location = new System.Drawing.Point(347, 32);
+            this.tb_SerieRPS.Name = "tb_SerieRPS";
+            this.tb_SerieRPS.Size = new System.Drawing.Size(59, 20);
+            this.tb_SerieRPS.TabIndex = 24;
+            // 
+            // tb_NumeroRPS
+            // 
+            this.tb_NumeroRPS.Location = new System.Drawing.Point(347, 9);
+            this.tb_NumeroRPS.Name = "tb_NumeroRPS";
+            this.tb_NumeroRPS.Size = new System.Drawing.Size(59, 20);
+            this.tb_NumeroRPS.TabIndex = 23;
+            // 
+            // btn_EnviarRPS
+            // 
+            this.btn_EnviarRPS.Location = new System.Drawing.Point(9, 19);
+            this.btn_EnviarRPS.Name = "btn_EnviarRPS";
+            this.btn_EnviarRPS.Size = new System.Drawing.Size(116, 23);
+            this.btn_EnviarRPS.TabIndex = 4;
+            this.btn_EnviarRPS.Text = "Enviar RPS";
+            this.btn_EnviarRPS.UseVisualStyleBackColor = true;
+            this.btn_EnviarRPS.Click += new System.EventHandler(this.btn_Enviar_Click);
             // 
             // gb_NFSe
             // 
@@ -339,190 +528,25 @@
             this.tp_Impressao.Text = "Impressão";
             this.tp_Impressao.UseVisualStyleBackColor = true;
             // 
-            // tc_Retorno
+            // btn_ConsultarNFSe
             // 
-            this.tc_Retorno.Controls.Add(this.tsXML);
-            this.tc_Retorno.Controls.Add(this.tsXMLFormatado);
-            this.tc_Retorno.Controls.Add(this.tsJSON);
-            this.tc_Retorno.Controls.Add(this.tsFormatado);
-            this.tc_Retorno.Location = new System.Drawing.Point(3, 365);
-            this.tc_Retorno.Name = "tc_Retorno";
-            this.tc_Retorno.SelectedIndex = 0;
-            this.tc_Retorno.Size = new System.Drawing.Size(618, 318);
-            this.tc_Retorno.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tc_Retorno.TabIndex = 6;
+            this.btn_ConsultarNFSe.Location = new System.Drawing.Point(9, 48);
+            this.btn_ConsultarNFSe.Name = "btn_ConsultarNFSe";
+            this.btn_ConsultarNFSe.Size = new System.Drawing.Size(116, 23);
+            this.btn_ConsultarNFSe.TabIndex = 33;
+            this.btn_ConsultarNFSe.Text = "Consultar NFSe";
+            this.btn_ConsultarNFSe.UseVisualStyleBackColor = true;
+            this.btn_ConsultarNFSe.Click += new System.EventHandler(this.btn_ConsultarNFSe_Click);
             // 
-            // tsXML
+            // btn_CancelarNFSe
             // 
-            this.tsXML.Controls.Add(this.tb_XMLEnvio);
-            this.tsXML.Location = new System.Drawing.Point(4, 22);
-            this.tsXML.Name = "tsXML";
-            this.tsXML.Padding = new System.Windows.Forms.Padding(3);
-            this.tsXML.Size = new System.Drawing.Size(610, 292);
-            this.tsXML.TabIndex = 0;
-            this.tsXML.Text = "XML envio, somente para impressão";
-            this.tsXML.UseVisualStyleBackColor = true;
-            // 
-            // tb_XMLEnvio
-            // 
-            this.tb_XMLEnvio.Location = new System.Drawing.Point(2, 1);
-            this.tb_XMLEnvio.Name = "tb_XMLEnvio";
-            this.tb_XMLEnvio.Size = new System.Drawing.Size(604, 300);
-            this.tb_XMLEnvio.TabIndex = 0;
-            this.tb_XMLEnvio.Text = "";
-            // 
-            // tsXMLFormatado
-            // 
-            this.tsXMLFormatado.Controls.Add(this.tb_XML);
-            this.tsXMLFormatado.Location = new System.Drawing.Point(4, 22);
-            this.tsXMLFormatado.Name = "tsXMLFormatado";
-            this.tsXMLFormatado.Padding = new System.Windows.Forms.Padding(3);
-            this.tsXMLFormatado.Size = new System.Drawing.Size(610, 304);
-            this.tsXMLFormatado.TabIndex = 1;
-            this.tsXMLFormatado.Text = "XML";
-            this.tsXMLFormatado.UseVisualStyleBackColor = true;
-            // 
-            // tb_XML
-            // 
-            this.tb_XML.Location = new System.Drawing.Point(3, 2);
-            this.tb_XML.Name = "tb_XML";
-            this.tb_XML.Size = new System.Drawing.Size(604, 300);
-            this.tb_XML.TabIndex = 1;
-            this.tb_XML.Text = "";
-            // 
-            // tsJSON
-            // 
-            this.tsJSON.Controls.Add(this.tb_JSON);
-            this.tsJSON.Location = new System.Drawing.Point(4, 22);
-            this.tsJSON.Name = "tsJSON";
-            this.tsJSON.Padding = new System.Windows.Forms.Padding(3);
-            this.tsJSON.Size = new System.Drawing.Size(610, 304);
-            this.tsJSON.TabIndex = 2;
-            this.tsJSON.Text = "JSON";
-            this.tsJSON.UseVisualStyleBackColor = true;
-            // 
-            // tb_JSON
-            // 
-            this.tb_JSON.Location = new System.Drawing.Point(3, 2);
-            this.tb_JSON.Name = "tb_JSON";
-            this.tb_JSON.Size = new System.Drawing.Size(604, 300);
-            this.tb_JSON.TabIndex = 1;
-            this.tb_JSON.Text = "";
-            // 
-            // tsFormatado
-            // 
-            this.tsFormatado.Controls.Add(this.tb_Tipado);
-            this.tsFormatado.Location = new System.Drawing.Point(4, 22);
-            this.tsFormatado.Name = "tsFormatado";
-            this.tsFormatado.Padding = new System.Windows.Forms.Padding(3);
-            this.tsFormatado.Size = new System.Drawing.Size(610, 304);
-            this.tsFormatado.TabIndex = 3;
-            this.tsFormatado.Text = "Campos Formatados";
-            this.tsFormatado.UseVisualStyleBackColor = true;
-            // 
-            // tb_Tipado
-            // 
-            this.tb_Tipado.Location = new System.Drawing.Point(3, 2);
-            this.tb_Tipado.Name = "tb_Tipado";
-            this.tb_Tipado.Size = new System.Drawing.Size(604, 300);
-            this.tb_Tipado.TabIndex = 1;
-            this.tb_Tipado.Text = "";
-            // 
-            // lbl_Protocolo
-            // 
-            this.lbl_Protocolo.AutoSize = true;
-            this.lbl_Protocolo.Location = new System.Drawing.Point(422, 38);
-            this.lbl_Protocolo.Name = "lbl_Protocolo";
-            this.lbl_Protocolo.Size = new System.Drawing.Size(92, 13);
-            this.lbl_Protocolo.TabIndex = 10;
-            this.lbl_Protocolo.Text = "Número Protocolo";
-            // 
-            // tb_Protocolo
-            // 
-            this.tb_Protocolo.Location = new System.Drawing.Point(520, 35);
-            this.tb_Protocolo.Name = "tb_Protocolo";
-            this.tb_Protocolo.Size = new System.Drawing.Size(84, 20);
-            this.tb_Protocolo.TabIndex = 9;
-            // 
-            // lbl_TipoRPS
-            // 
-            this.lbl_TipoRPS.AutoSize = true;
-            this.lbl_TipoRPS.Location = new System.Drawing.Point(310, 58);
-            this.lbl_TipoRPS.Name = "lbl_TipoRPS";
-            this.lbl_TipoRPS.Size = new System.Drawing.Size(28, 13);
-            this.lbl_TipoRPS.TabIndex = 28;
-            this.lbl_TipoRPS.Text = "Tipo";
-            // 
-            // lbl_SerieRPS
-            // 
-            this.lbl_SerieRPS.AutoSize = true;
-            this.lbl_SerieRPS.Location = new System.Drawing.Point(310, 35);
-            this.lbl_SerieRPS.Name = "lbl_SerieRPS";
-            this.lbl_SerieRPS.Size = new System.Drawing.Size(31, 13);
-            this.lbl_SerieRPS.TabIndex = 27;
-            this.lbl_SerieRPS.Text = "Série";
-            // 
-            // lbl_NumeroRPS
-            // 
-            this.lbl_NumeroRPS.AutoSize = true;
-            this.lbl_NumeroRPS.Location = new System.Drawing.Point(312, 12);
-            this.lbl_NumeroRPS.Name = "lbl_NumeroRPS";
-            this.lbl_NumeroRPS.Size = new System.Drawing.Size(29, 13);
-            this.lbl_NumeroRPS.TabIndex = 26;
-            this.lbl_NumeroRPS.Text = "RPS";
-            // 
-            // tb_TipoRPS
-            // 
-            this.tb_TipoRPS.Location = new System.Drawing.Point(347, 55);
-            this.tb_TipoRPS.Name = "tb_TipoRPS";
-            this.tb_TipoRPS.Size = new System.Drawing.Size(59, 20);
-            this.tb_TipoRPS.TabIndex = 25;
-            // 
-            // tb_SerieRPS
-            // 
-            this.tb_SerieRPS.Location = new System.Drawing.Point(347, 32);
-            this.tb_SerieRPS.Name = "tb_SerieRPS";
-            this.tb_SerieRPS.Size = new System.Drawing.Size(59, 20);
-            this.tb_SerieRPS.TabIndex = 24;
-            // 
-            // tb_NumeroRPS
-            // 
-            this.tb_NumeroRPS.Location = new System.Drawing.Point(347, 9);
-            this.tb_NumeroRPS.Name = "tb_NumeroRPS";
-            this.tb_NumeroRPS.Size = new System.Drawing.Size(59, 20);
-            this.tb_NumeroRPS.TabIndex = 23;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(408, 12);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 13);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Chave Cancelamento";
-            // 
-            // lbl_NumeroNFSe
-            // 
-            this.lbl_NumeroNFSe.AutoSize = true;
-            this.lbl_NumeroNFSe.Location = new System.Drawing.Point(307, 81);
-            this.lbl_NumeroNFSe.Name = "lbl_NumeroNFSe";
-            this.lbl_NumeroNFSe.Size = new System.Drawing.Size(34, 13);
-            this.lbl_NumeroNFSe.TabIndex = 31;
-            this.lbl_NumeroNFSe.Text = "NFSe";
-            // 
-            // tb_ChaveCancelamento
-            // 
-            this.tb_ChaveCancelamento.Location = new System.Drawing.Point(520, 9);
-            this.tb_ChaveCancelamento.Name = "tb_ChaveCancelamento";
-            this.tb_ChaveCancelamento.Size = new System.Drawing.Size(84, 20);
-            this.tb_ChaveCancelamento.TabIndex = 30;
-            // 
-            // tb_NumeroNFSe
-            // 
-            this.tb_NumeroNFSe.Location = new System.Drawing.Point(347, 81);
-            this.tb_NumeroNFSe.Name = "tb_NumeroNFSe";
-            this.tb_NumeroNFSe.Size = new System.Drawing.Size(59, 20);
-            this.tb_NumeroNFSe.TabIndex = 29;
+            this.btn_CancelarNFSe.Location = new System.Drawing.Point(9, 76);
+            this.btn_CancelarNFSe.Name = "btn_CancelarNFSe";
+            this.btn_CancelarNFSe.Size = new System.Drawing.Size(116, 23);
+            this.btn_CancelarNFSe.TabIndex = 34;
+            this.btn_CancelarNFSe.Text = "Cancelar NFSe";
+            this.btn_CancelarNFSe.UseVisualStyleBackColor = true;
+            this.btn_CancelarNFSe.Click += new System.EventHandler(this.btn_CancelarNFSe_Click);
             // 
             // frmPrincipal
             // 
@@ -535,6 +559,11 @@
             this.Text = "Demonstração Componente NFSe V2";
             this.tc_Principal.ResumeLayout(false);
             this.tb_NFSe.ResumeLayout(false);
+            this.tc_Retorno.ResumeLayout(false);
+            this.tsXML.ResumeLayout(false);
+            this.tsXMLFormatado.ResumeLayout(false);
+            this.tsJSON.ResumeLayout(false);
+            this.tsFormatado.ResumeLayout(false);
             this.gb_Operacoes.ResumeLayout(false);
             this.gb_Operacoes.PerformLayout();
             this.gb_NFSe.ResumeLayout(false);
@@ -545,11 +574,6 @@
             this.groupBox1.PerformLayout();
             this.gp_Autenticacao.ResumeLayout(false);
             this.gp_Autenticacao.PerformLayout();
-            this.tc_Retorno.ResumeLayout(false);
-            this.tsXML.ResumeLayout(false);
-            this.tsXMLFormatado.ResumeLayout(false);
-            this.tsJSON.ResumeLayout(false);
-            this.tsFormatado.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -578,7 +602,7 @@
         private System.Windows.Forms.RadioButton rbt_Producao;
         private System.Windows.Forms.RadioButton rbt_Homologacao;
         private System.Windows.Forms.GroupBox gb_Operacoes;
-        private System.Windows.Forms.Button btn_Enviar;
+        private System.Windows.Forms.Button btn_EnviarRPS;
         private System.Windows.Forms.Button btn_Salvar;
         private System.Windows.Forms.TabControl tc_Retorno;
         private System.Windows.Forms.TabPage tsXML;
@@ -601,6 +625,8 @@
         private System.Windows.Forms.TextBox tb_TipoRPS;
         private System.Windows.Forms.TextBox tb_SerieRPS;
         private System.Windows.Forms.TextBox tb_NumeroRPS;
+        private System.Windows.Forms.Button btn_CancelarNFSe;
+        private System.Windows.Forms.Button btn_ConsultarNFSe;
     }
 }
 

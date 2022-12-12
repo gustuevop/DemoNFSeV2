@@ -23,13 +23,10 @@ namespace DemoNFSeV2
         private XmlDocument xDoc = new XmlDocument();
         public OpenFileDialog AbrirArquivo = new OpenFileDialog();
 
-        public string CNPJSH = "08187168000160";
-        public string TokenSH = "";
-
         public frmPrincipal()
         {
             InitializeComponent();
-            NFSe.ConfigurarSoftwareHouse(CNPJSH, TokenSH);
+            NFSe.ConfigurarSoftwareHouse("08187168000160", "");
             PreencherComboCertificado();
         }
 
@@ -123,6 +120,18 @@ namespace DemoNFSeV2
                 MessageBox.Show("Favor selecionar um arquivo TX2", "Atenção", MessageBoxButtons.OK);
             }
         }
+        private void btn_ConsultarNFSe_Click(object sender, EventArgs e)
+        {
+            NFSe.Consultar(tb_NFSe.Text, tb_NumeroRPS.Text, tb_SerieRPS.Text, tb_TipoRPS.Text, tb_Protocolo.Text);
+            RetornoV2Tipado();
+            RetornoV2Json();
+        }
+        private void btn_CancelarNFSe_Click(object sender, EventArgs e)
+        {
+            NFSe.CancelarNota(tb_ChaveCancelamento.Text);
+            RetornoV2Tipado();
+            RetornoV2Json();
+        }
         public string BuscarArquivo(string Titulo, string tipoArquivo)
         {
             AbrirArquivo.Title = Titulo;
@@ -201,5 +210,7 @@ namespace DemoNFSeV2
             tb_JSON.Clear();
             IncluirLinha(tb_JSON, NFSe.RetornoJson());
         }
+
+
     }
 }
