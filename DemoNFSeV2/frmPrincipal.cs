@@ -33,6 +33,10 @@ namespace DemoNFSeV2
             PreencherComboCertificado();
         }
 
+        private void IncluirLinha(RichTextBox MemoAux, string pTexto)
+        {
+            MemoAux.Text = MemoAux.Text + (pTexto) + Environment.NewLine;
+        }
         private void PreencherComboCertificado()
         {
             try
@@ -111,8 +115,8 @@ namespace DemoNFSeV2
             if (XMLAux != "")
             {
                 NFSe.Enviar(XMLAux);
-                //RetornoV2Tipado();
-                //RetornoV2Json();
+                RetornoV2Tipado();
+                RetornoV2Json();
             }
             else
             {
@@ -131,6 +135,71 @@ namespace DemoNFSeV2
                 return AbrirArquivo.FileName;
             else
                 return "";
+        }
+        private void RetornoV2Tipado()
+        {
+            int vTotal;
+            tb_Tipado.Clear();
+            tb_Tipado.Multiline = true;
+
+            vTotal = NFSe.RetornoWS.Count();
+
+            for (int i = 0; i < vTotal; i++)
+            {
+                IncluirLinha(tb_Tipado, "Status: " + NFSe.RetornoWS.Items(i).Status);
+
+                if (NFSe.RetornoWS.Items(i).Status == "EMPROCESSAMENTO")
+                {
+                    IncluirLinha(tb_Tipado, "Protocolo: " + NFSe.RetornoWS.Items(i).Protocolo);
+                    if (NFSe.RetornoWS.Items(i).Protocolo != "")
+                    {
+                        tb_Protocolo.Text = NFSe.RetornoWS.Items(i).Protocolo;
+                    }
+                }
+                else
+                if (NFSe.RetornoWS.Items(i).Status == "ERRO")
+                {
+                    IncluirLinha(tb_Tipado, "Motivo: " + NFSe.RetornoWS.Items(i).Motivo);
+                }
+                else
+                {
+                    IncluirLinha(tb_Tipado, "Protocolo: " + NFSe.RetornoWS.Items(i).Protocolo);
+                    IncluirLinha(tb_Tipado, "CNPJ: " + NFSe.RetornoWS.Items(i).CNPJ);
+                    IncluirLinha(tb_Tipado, "Inscricao Municipal: " + NFSe.RetornoWS.Items(i).InscricaoMunicipal);
+                    IncluirLinha(tb_Tipado, "Serie do RPS: " + NFSe.RetornoWS.Items(i).SerieRps);
+                    IncluirLinha(tb_Tipado, "Número do RPS: " + NFSe.RetornoWS.Items(i).NumeroRps);
+                    IncluirLinha(tb_Tipado, "Número da NFS-e: " + NFSe.RetornoWS.Items(i).NumeroNFSe);
+                    IncluirLinha(tb_Tipado, "Data de Emissão: " + NFSe.RetornoWS.Items(i).DataEmissaoNFSe);
+                    IncluirLinha(tb_Tipado, "Código de Verificação: " + NFSe.RetornoWS.Items(i).CodVerificacao);
+                    IncluirLinha(tb_Tipado, "Situação: " + NFSe.RetornoWS.Items(i).Situacao);
+                    IncluirLinha(tb_Tipado, "Data De Cancelamento: " + NFSe.RetornoWS.Items(i).DataCancelamento);
+                    IncluirLinha(tb_Tipado, "Chave de Cancelamento: " + NFSe.RetornoWS.Items(i).ChaveCancelamento);
+                    IncluirLinha(tb_Tipado, "Tipo: " + NFSe.RetornoWS.Items(i).Tipo);
+                    IncluirLinha(tb_Tipado, "Motivo: " + NFSe.RetornoWS.Items(i).Motivo);
+                    IncluirLinha(tb_Tipado, "XML: " + NFSe.RetornoWS.Items(i).XmlImpressao);
+                    IncluirLinha(tb_Tipado, "Data de Autorização: " + NFSe.RetornoWS.Items(i).DataAutorizacao);
+                    IncluirLinha(tb_Tipado, "");
+                    IncluirLinha(tb_Tipado, "================================================");
+                    IncluirLinha(tb_Tipado, "");
+
+                    //Tratamentos somente para Demo
+                    if (NFSe.RetornoWS.Items(i).Protocolo != "")
+                    {
+                        tb_Protocolo.Text = NFSe.RetornoWS.Items(i).Protocolo;
+                    }
+                    tb_NumeroRPS.Text = NFSe.RetornoWS.Items(i).NumeroRps;
+                    tb_SerieRPS.Text = NFSe.RetornoWS.Items(i).SerieRps;
+                    tb_TipoRPS.Text = NFSe.RetornoWS.Items(i).Tipo;
+                    tb_NFSe.Text = NFSe.RetornoWS.Items(i).NumeroNFSe;
+                    tb_ChaveCancelamento.Text = NFSe.RetornoWS.Items(i).ChaveCancelamento;
+                    tb_XML.Text = NFSe.RetornoWS.Items(i).XmlImpressao;
+                }
+            }
+        }
+        public void RetornoV2Json()
+        {
+            tb_JSON.Clear();
+            IncluirLinha(tb_JSON, NFSe.RetornoJson());
         }
     }
 }
