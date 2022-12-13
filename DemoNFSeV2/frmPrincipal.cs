@@ -26,7 +26,7 @@ namespace DemoNFSeV2
         public frmPrincipal()
         {
             InitializeComponent();
-            NFSe.ConfigurarSoftwareHouse("08187168000160", "uR4BwzifCN2t7Nuf7IOlo4Z0Vbnojlroa13x3dVu");
+            NFSe.ConfigurarSoftwareHouse("08187168000160", "");
             PreencherComboCertificado();
         }
 
@@ -217,7 +217,86 @@ namespace DemoNFSeV2
             tb_JSON.Clear();
             IncluirLinha(tb_JSON, NFSe.RetornoJson());
         }
+        private void btnLogoEmitente_Click(object sender, EventArgs e)
+        {
+            string ImgLogo = "";
 
+            ImgLogo = BuscarArquivo("Selecionar Logotipo Emitente.", "JPEG (*.jpg)|*.jpg");
 
+            tb_LogoEmitente.Text = ImgLogo;
+        }
+
+        private void btImprimir_Click(object sender, EventArgs e)
+        {
+            string TX2Aux = "";
+            if (tb_CamposCustomizados.Text == "")
+            {
+                TX2Aux = BuscarArquivo("Selecionar campos customizados.", "TX2 (*.tx2)|*.tx2");
+            }
+            else
+            {
+                TX2Aux = tb_CamposCustomizados.Text;
+            }
+            NFSe.Imprimir(tb_XML.Text, tb_XMLEnvio.Text, TX2Aux, "");
+        }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+            string TX2Aux = "";
+
+            if (tb_CamposCustomizados.Text == "")
+            {
+                TX2Aux = BuscarArquivo("Selecionar campos customizados.", "TX2 (*.tx2)|*.tx2");
+            }
+            else
+            {
+                TX2Aux = tb_CamposCustomizados.Text;
+            }
+            NFSe.EditarImpressao(tb_XML.Text, tb_XMLEnvio.Text, TX2Aux);
+        }
+
+        private void btExportar_Click(object sender, EventArgs e)
+        {
+            string ArquivoAux = "";
+            string TX2Aux = "";
+            SaveFileDialog SalvarArquivo = new SaveFileDialog();
+
+            if (tb_CamposCustomizados.Text == "")
+            {
+                TX2Aux = BuscarArquivo("Selecionar campos customizados.", "TX2 (*.tx2)|*.tx2");
+            }
+            else
+            {
+                TX2Aux = tb_CamposCustomizados.Text;
+            }
+
+            SalvarArquivo.Title = "Salvar PDF";
+            SalvarArquivo.Filter = "PDF (*.pdf)|*.pdf";
+            SalvarArquivo.FileName = NFSe.Cidade + ".pdf";
+            SalvarArquivo.InitialDirectory = Application.StartupPath;
+
+            if (SalvarArquivo.ShowDialog() == DialogResult.OK)
+            {
+                ArquivoAux = SalvarArquivo.FileName;
+                NFSe.ExportarImpressaoParaPDF(tb_XML.Text, tb_XMLEnvio.Text, TX2Aux, ArquivoAux);
+
+            }
+        }
+
+        private void btVisualizar_Click(object sender, EventArgs e)
+        {
+            string TX2Aux = "";
+
+            if (tb_CamposCustomizados.Text == "")
+            {
+                TX2Aux = BuscarArquivo("Selecionar campos customizados.", "TX2 (*.tx2)|*.tx2");
+            }
+            else
+            {
+                TX2Aux = tb_CamposCustomizados.Text;
+            }
+
+            NFSe.VisualizarImpressao(tb_XML.Text, tb_XMLEnvio.Text, TX2Aux);
+        }
     }
 }

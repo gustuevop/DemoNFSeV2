@@ -40,6 +40,8 @@
             this.tsFormatado = new System.Windows.Forms.TabPage();
             this.tb_Tipado = new System.Windows.Forms.RichTextBox();
             this.gb_Operacoes = new System.Windows.Forms.GroupBox();
+            this.btn_CancelarNFSe = new System.Windows.Forms.Button();
+            this.btn_ConsultarNFSe = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.lbl_NumeroNFSe = new System.Windows.Forms.Label();
             this.tb_NumeroNFSe = new System.Windows.Forms.TextBox();
@@ -73,8 +75,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cb_Certificado = new System.Windows.Forms.ComboBox();
             this.tp_Impressao = new System.Windows.Forms.TabPage();
-            this.btn_ConsultarNFSe = new System.Windows.Forms.Button();
-            this.btn_CancelarNFSe = new System.Windows.Forms.Button();
+            this.gb_Impressao = new System.Windows.Forms.GroupBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lbl_CamposCustomizados = new System.Windows.Forms.Label();
+            this.tb_CamposCustomizados = new System.Windows.Forms.TextBox();
+            this.btn_LogoEmitente = new System.Windows.Forms.Button();
+            this.lbl_LogoEmitente = new System.Windows.Forms.Label();
+            this.tb_LogoEmitente = new System.Windows.Forms.TextBox();
+            this.gb_Acoes = new System.Windows.Forms.GroupBox();
+            this.btn_Visualizar = new System.Windows.Forms.Button();
+            this.btn_Exportar = new System.Windows.Forms.Button();
+            this.btn_Editar = new System.Windows.Forms.Button();
+            this.btn_Imprimir = new System.Windows.Forms.Button();
             this.tc_Principal.SuspendLayout();
             this.tb_NFSe.SuspendLayout();
             this.tc_Retorno.SuspendLayout();
@@ -87,6 +99,9 @@
             this.gb_Ambiente.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gp_Autenticacao.SuspendLayout();
+            this.tp_Impressao.SuspendLayout();
+            this.gb_Impressao.SuspendLayout();
+            this.gb_Acoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // tc_Principal
@@ -97,19 +112,18 @@
             this.tc_Principal.Location = new System.Drawing.Point(3, 2);
             this.tc_Principal.Name = "tc_Principal";
             this.tc_Principal.SelectedIndex = 0;
-            this.tc_Principal.Size = new System.Drawing.Size(629, 709);
+            this.tc_Principal.Size = new System.Drawing.Size(629, 393);
             this.tc_Principal.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tc_Principal.TabIndex = 0;
             // 
             // tb_NFSe
             // 
-            this.tb_NFSe.Controls.Add(this.tc_Retorno);
             this.tb_NFSe.Controls.Add(this.gb_Operacoes);
             this.tb_NFSe.Controls.Add(this.gb_NFSe);
             this.tb_NFSe.Location = new System.Drawing.Point(4, 22);
             this.tb_NFSe.Name = "tb_NFSe";
             this.tb_NFSe.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_NFSe.Size = new System.Drawing.Size(621, 683);
+            this.tb_NFSe.Size = new System.Drawing.Size(621, 367);
             this.tb_NFSe.TabIndex = 0;
             this.tb_NFSe.Text = "NFSe";
             this.tb_NFSe.UseVisualStyleBackColor = true;
@@ -120,10 +134,10 @@
             this.tc_Retorno.Controls.Add(this.tsXMLFormatado);
             this.tc_Retorno.Controls.Add(this.tsJSON);
             this.tc_Retorno.Controls.Add(this.tsFormatado);
-            this.tc_Retorno.Location = new System.Drawing.Point(3, 365);
+            this.tc_Retorno.Location = new System.Drawing.Point(3, 397);
             this.tc_Retorno.Name = "tc_Retorno";
             this.tc_Retorno.SelectedIndex = 0;
-            this.tc_Retorno.Size = new System.Drawing.Size(618, 318);
+            this.tc_Retorno.Size = new System.Drawing.Size(625, 313);
             this.tc_Retorno.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tc_Retorno.TabIndex = 6;
             // 
@@ -133,7 +147,7 @@
             this.tsXML.Location = new System.Drawing.Point(4, 22);
             this.tsXML.Name = "tsXML";
             this.tsXML.Padding = new System.Windows.Forms.Padding(3);
-            this.tsXML.Size = new System.Drawing.Size(610, 292);
+            this.tsXML.Size = new System.Drawing.Size(617, 287);
             this.tsXML.TabIndex = 0;
             this.tsXML.Text = "XML envio, somente para impressão";
             this.tsXML.UseVisualStyleBackColor = true;
@@ -142,7 +156,7 @@
             // 
             this.tb_XMLEnvio.Location = new System.Drawing.Point(2, 1);
             this.tb_XMLEnvio.Name = "tb_XMLEnvio";
-            this.tb_XMLEnvio.Size = new System.Drawing.Size(604, 300);
+            this.tb_XMLEnvio.Size = new System.Drawing.Size(615, 288);
             this.tb_XMLEnvio.TabIndex = 0;
             this.tb_XMLEnvio.Text = "";
             // 
@@ -152,7 +166,7 @@
             this.tsXMLFormatado.Location = new System.Drawing.Point(4, 22);
             this.tsXMLFormatado.Name = "tsXMLFormatado";
             this.tsXMLFormatado.Padding = new System.Windows.Forms.Padding(3);
-            this.tsXMLFormatado.Size = new System.Drawing.Size(610, 292);
+            this.tsXMLFormatado.Size = new System.Drawing.Size(617, 287);
             this.tsXMLFormatado.TabIndex = 1;
             this.tsXMLFormatado.Text = "XML";
             this.tsXMLFormatado.UseVisualStyleBackColor = true;
@@ -161,7 +175,7 @@
             // 
             this.tb_XML.Location = new System.Drawing.Point(3, 2);
             this.tb_XML.Name = "tb_XML";
-            this.tb_XML.Size = new System.Drawing.Size(604, 300);
+            this.tb_XML.Size = new System.Drawing.Size(614, 300);
             this.tb_XML.TabIndex = 1;
             this.tb_XML.Text = "";
             // 
@@ -171,7 +185,7 @@
             this.tsJSON.Location = new System.Drawing.Point(4, 22);
             this.tsJSON.Name = "tsJSON";
             this.tsJSON.Padding = new System.Windows.Forms.Padding(3);
-            this.tsJSON.Size = new System.Drawing.Size(610, 292);
+            this.tsJSON.Size = new System.Drawing.Size(617, 287);
             this.tsJSON.TabIndex = 2;
             this.tsJSON.Text = "JSON";
             this.tsJSON.UseVisualStyleBackColor = true;
@@ -180,7 +194,7 @@
             // 
             this.tb_JSON.Location = new System.Drawing.Point(3, 2);
             this.tb_JSON.Name = "tb_JSON";
-            this.tb_JSON.Size = new System.Drawing.Size(604, 300);
+            this.tb_JSON.Size = new System.Drawing.Size(614, 300);
             this.tb_JSON.TabIndex = 1;
             this.tb_JSON.Text = "";
             // 
@@ -190,7 +204,7 @@
             this.tsFormatado.Location = new System.Drawing.Point(4, 22);
             this.tsFormatado.Name = "tsFormatado";
             this.tsFormatado.Padding = new System.Windows.Forms.Padding(3);
-            this.tsFormatado.Size = new System.Drawing.Size(610, 292);
+            this.tsFormatado.Size = new System.Drawing.Size(617, 287);
             this.tsFormatado.TabIndex = 3;
             this.tsFormatado.Text = "Campos Formatados";
             this.tsFormatado.UseVisualStyleBackColor = true;
@@ -199,7 +213,7 @@
             // 
             this.tb_Tipado.Location = new System.Drawing.Point(3, 2);
             this.tb_Tipado.Name = "tb_Tipado";
-            this.tb_Tipado.Size = new System.Drawing.Size(604, 300);
+            this.tb_Tipado.Size = new System.Drawing.Size(614, 289);
             this.tb_Tipado.TabIndex = 1;
             this.tb_Tipado.Text = "";
             // 
@@ -226,6 +240,26 @@
             this.gb_Operacoes.TabIndex = 5;
             this.gb_Operacoes.TabStop = false;
             this.gb_Operacoes.Text = "Operações";
+            // 
+            // btn_CancelarNFSe
+            // 
+            this.btn_CancelarNFSe.Location = new System.Drawing.Point(9, 76);
+            this.btn_CancelarNFSe.Name = "btn_CancelarNFSe";
+            this.btn_CancelarNFSe.Size = new System.Drawing.Size(116, 23);
+            this.btn_CancelarNFSe.TabIndex = 34;
+            this.btn_CancelarNFSe.Text = "Cancelar NFSe";
+            this.btn_CancelarNFSe.UseVisualStyleBackColor = true;
+            this.btn_CancelarNFSe.Click += new System.EventHandler(this.btn_CancelarNFSe_Click);
+            // 
+            // btn_ConsultarNFSe
+            // 
+            this.btn_ConsultarNFSe.Location = new System.Drawing.Point(9, 48);
+            this.btn_ConsultarNFSe.Name = "btn_ConsultarNFSe";
+            this.btn_ConsultarNFSe.Size = new System.Drawing.Size(116, 23);
+            this.btn_ConsultarNFSe.TabIndex = 33;
+            this.btn_ConsultarNFSe.Text = "Consultar NFSe";
+            this.btn_ConsultarNFSe.UseVisualStyleBackColor = true;
+            this.btn_ConsultarNFSe.Click += new System.EventHandler(this.btn_ConsultarNFSe_Click);
             // 
             // label9
             // 
@@ -520,39 +554,143 @@
             // 
             // tp_Impressao
             // 
+            this.tp_Impressao.Controls.Add(this.gb_Acoes);
+            this.tp_Impressao.Controls.Add(this.gb_Impressao);
             this.tp_Impressao.Location = new System.Drawing.Point(4, 22);
             this.tp_Impressao.Name = "tp_Impressao";
             this.tp_Impressao.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_Impressao.Size = new System.Drawing.Size(621, 683);
+            this.tp_Impressao.Size = new System.Drawing.Size(621, 367);
             this.tp_Impressao.TabIndex = 1;
             this.tp_Impressao.Text = "Impressão";
             this.tp_Impressao.UseVisualStyleBackColor = true;
             // 
-            // btn_ConsultarNFSe
+            // gb_Impressao
             // 
-            this.btn_ConsultarNFSe.Location = new System.Drawing.Point(9, 48);
-            this.btn_ConsultarNFSe.Name = "btn_ConsultarNFSe";
-            this.btn_ConsultarNFSe.Size = new System.Drawing.Size(116, 23);
-            this.btn_ConsultarNFSe.TabIndex = 33;
-            this.btn_ConsultarNFSe.Text = "Consultar NFSe";
-            this.btn_ConsultarNFSe.UseVisualStyleBackColor = true;
-            this.btn_ConsultarNFSe.Click += new System.EventHandler(this.btn_ConsultarNFSe_Click);
+            this.gb_Impressao.Controls.Add(this.linkLabel1);
+            this.gb_Impressao.Controls.Add(this.lbl_CamposCustomizados);
+            this.gb_Impressao.Controls.Add(this.tb_CamposCustomizados);
+            this.gb_Impressao.Controls.Add(this.btn_LogoEmitente);
+            this.gb_Impressao.Controls.Add(this.lbl_LogoEmitente);
+            this.gb_Impressao.Controls.Add(this.tb_LogoEmitente);
+            this.gb_Impressao.Location = new System.Drawing.Point(5, 6);
+            this.gb_Impressao.Name = "gb_Impressao";
+            this.gb_Impressao.Size = new System.Drawing.Size(610, 145);
+            this.gb_Impressao.TabIndex = 1;
+            this.gb_Impressao.TabStop = false;
+            this.gb_Impressao.Text = "Configurações";
             // 
-            // btn_CancelarNFSe
+            // linkLabel1
             // 
-            this.btn_CancelarNFSe.Location = new System.Drawing.Point(9, 76);
-            this.btn_CancelarNFSe.Name = "btn_CancelarNFSe";
-            this.btn_CancelarNFSe.Size = new System.Drawing.Size(116, 23);
-            this.btn_CancelarNFSe.TabIndex = 34;
-            this.btn_CancelarNFSe.Text = "Cancelar NFSe";
-            this.btn_CancelarNFSe.UseVisualStyleBackColor = true;
-            this.btn_CancelarNFSe.Click += new System.EventHandler(this.btn_CancelarNFSe_Click);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(142, 60);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(127, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Consultar Documentação";
+            // 
+            // lbl_CamposCustomizados
+            // 
+            this.lbl_CamposCustomizados.AutoSize = true;
+            this.lbl_CamposCustomizados.Location = new System.Drawing.Point(23, 60);
+            this.lbl_CamposCustomizados.Name = "lbl_CamposCustomizados";
+            this.lbl_CamposCustomizados.Size = new System.Drawing.Size(113, 13);
+            this.lbl_CamposCustomizados.TabIndex = 4;
+            this.lbl_CamposCustomizados.Text = "Campos Customizados";
+            // 
+            // tb_CamposCustomizados
+            // 
+            this.tb_CamposCustomizados.Location = new System.Drawing.Point(21, 76);
+            this.tb_CamposCustomizados.Multiline = true;
+            this.tb_CamposCustomizados.Name = "tb_CamposCustomizados";
+            this.tb_CamposCustomizados.Size = new System.Drawing.Size(575, 63);
+            this.tb_CamposCustomizados.TabIndex = 3;
+            // 
+            // btn_LogoEmitente
+            // 
+            this.btn_LogoEmitente.Location = new System.Drawing.Point(565, 30);
+            this.btn_LogoEmitente.Name = "btn_LogoEmitente";
+            this.btn_LogoEmitente.Size = new System.Drawing.Size(31, 23);
+            this.btn_LogoEmitente.TabIndex = 2;
+            this.btn_LogoEmitente.Text = "...";
+            this.btn_LogoEmitente.UseVisualStyleBackColor = true;
+            this.btn_LogoEmitente.Click += new System.EventHandler(this.btnLogoEmitente_Click);
+            // 
+            // lbl_LogoEmitente
+            // 
+            this.lbl_LogoEmitente.AutoSize = true;
+            this.lbl_LogoEmitente.Location = new System.Drawing.Point(23, 17);
+            this.lbl_LogoEmitente.Name = "lbl_LogoEmitente";
+            this.lbl_LogoEmitente.Size = new System.Drawing.Size(92, 13);
+            this.lbl_LogoEmitente.TabIndex = 1;
+            this.lbl_LogoEmitente.Text = "Logotipo Emitente";
+            // 
+            // tb_LogoEmitente
+            // 
+            this.tb_LogoEmitente.Location = new System.Drawing.Point(21, 32);
+            this.tb_LogoEmitente.Name = "tb_LogoEmitente";
+            this.tb_LogoEmitente.Size = new System.Drawing.Size(537, 20);
+            this.tb_LogoEmitente.TabIndex = 0;
+            // 
+            // gb_Acoes
+            // 
+            this.gb_Acoes.Controls.Add(this.btn_Visualizar);
+            this.gb_Acoes.Controls.Add(this.btn_Exportar);
+            this.gb_Acoes.Controls.Add(this.btn_Editar);
+            this.gb_Acoes.Controls.Add(this.btn_Imprimir);
+            this.gb_Acoes.Location = new System.Drawing.Point(6, 157);
+            this.gb_Acoes.Name = "gb_Acoes";
+            this.gb_Acoes.Size = new System.Drawing.Size(609, 75);
+            this.gb_Acoes.TabIndex = 2;
+            this.gb_Acoes.TabStop = false;
+            this.gb_Acoes.Text = "Ações";
+            // 
+            // btn_Visualizar
+            // 
+            this.btn_Visualizar.Location = new System.Drawing.Point(454, 25);
+            this.btn_Visualizar.Name = "btn_Visualizar";
+            this.btn_Visualizar.Size = new System.Drawing.Size(140, 23);
+            this.btn_Visualizar.TabIndex = 3;
+            this.btn_Visualizar.Text = "Visualizar";
+            this.btn_Visualizar.UseVisualStyleBackColor = true;
+            this.btn_Visualizar.Click += new System.EventHandler(this.btVisualizar_Click);
+            // 
+            // btn_Exportar
+            // 
+            this.btn_Exportar.Location = new System.Drawing.Point(308, 25);
+            this.btn_Exportar.Name = "btn_Exportar";
+            this.btn_Exportar.Size = new System.Drawing.Size(140, 23);
+            this.btn_Exportar.TabIndex = 2;
+            this.btn_Exportar.Text = "Exportar Para PDF";
+            this.btn_Exportar.UseVisualStyleBackColor = true;
+            this.btn_Exportar.Click += new System.EventHandler(this.btExportar_Click);
+            // 
+            // btn_Editar
+            // 
+            this.btn_Editar.Location = new System.Drawing.Point(162, 25);
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(140, 23);
+            this.btn_Editar.TabIndex = 1;
+            this.btn_Editar.Text = "Editar";
+            this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.Click += new System.EventHandler(this.btEditar_Click);
+            // 
+            // btn_Imprimir
+            // 
+            this.btn_Imprimir.Location = new System.Drawing.Point(16, 25);
+            this.btn_Imprimir.Name = "btn_Imprimir";
+            this.btn_Imprimir.Size = new System.Drawing.Size(140, 23);
+            this.btn_Imprimir.TabIndex = 0;
+            this.btn_Imprimir.Text = "Imprimir";
+            this.btn_Imprimir.UseVisualStyleBackColor = true;
+            this.btn_Imprimir.Click += new System.EventHandler(this.btImprimir_Click);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 712);
+            this.Controls.Add(this.tc_Retorno);
             this.Controls.Add(this.tc_Principal);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -574,6 +712,10 @@
             this.groupBox1.PerformLayout();
             this.gp_Autenticacao.ResumeLayout(false);
             this.gp_Autenticacao.PerformLayout();
+            this.tp_Impressao.ResumeLayout(false);
+            this.gb_Impressao.ResumeLayout(false);
+            this.gb_Impressao.PerformLayout();
+            this.gb_Acoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -627,6 +769,18 @@
         private System.Windows.Forms.TextBox tb_NumeroRPS;
         private System.Windows.Forms.Button btn_CancelarNFSe;
         private System.Windows.Forms.Button btn_ConsultarNFSe;
+        private System.Windows.Forms.GroupBox gb_Acoes;
+        private System.Windows.Forms.Button btn_Visualizar;
+        private System.Windows.Forms.Button btn_Exportar;
+        private System.Windows.Forms.Button btn_Editar;
+        private System.Windows.Forms.Button btn_Imprimir;
+        private System.Windows.Forms.GroupBox gb_Impressao;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label lbl_CamposCustomizados;
+        private System.Windows.Forms.TextBox tb_CamposCustomizados;
+        private System.Windows.Forms.Button btn_LogoEmitente;
+        private System.Windows.Forms.Label lbl_LogoEmitente;
+        private System.Windows.Forms.TextBox tb_LogoEmitente;
     }
 }
 
